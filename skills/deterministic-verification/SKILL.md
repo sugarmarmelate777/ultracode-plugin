@@ -1,5 +1,7 @@
 ---
 name: Deterministic Verification (TDD-Agent Mode)
+version: "1.0.0"
+depends_on: []
 description: Forbids "vibe coding" by enforcing strict, deterministic structural tests and automated verification before a task is considered complete.
 ---
 

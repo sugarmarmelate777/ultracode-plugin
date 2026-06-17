@@ -1,5 +1,7 @@
 ---
 name: Knowledge Persistence (Memory Manager)
+version: "1.0.0"
+depends_on: []
 description: Cures agent "amnesia" by writing critical lessons learned into long-term project memory.
 ---
 
@@ -14,6 +16,7 @@ description: Cures agent "amnesia" by writing critical lessons learned into long
    - If `CI=true`, skip writing to `.ultracode/memory.md`. CI builds are ephemeral and should not persist agent state.
    - Otherwise, automatically write these findings into the project's long-term memory.
    - By default, use the global Knowledge Items (KI) system if available. If not, create or append to a `.ultracode/memory.md` or your IDE's equivalent rules file (e.g., `.cursorrules` for Cursor, `CLAUDE.md` for Claude Code) in the root of the user's current project.
+   - **Deduplication:** Before appending, check if an equivalent lesson already exists in the file. If a semantically identical entry is found, update its timestamp rather than duplicating.
 
 3. **Memory Retrieval:**
    - At the start of a new task, always check if a `.ultracode/memory.md` exists in the project root and read it using JIT Context Retrieval.

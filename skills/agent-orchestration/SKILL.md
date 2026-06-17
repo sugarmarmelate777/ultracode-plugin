@@ -1,5 +1,7 @@
 ---
 name: Sub-Agent Orchestration (Divide & Conquer)
+version: "1.0.0"
+depends_on: []
 description: Leverages specialized sub-agents and tool parallelization to tackle complex workflows without overloading a single agent's context.
 ---
 

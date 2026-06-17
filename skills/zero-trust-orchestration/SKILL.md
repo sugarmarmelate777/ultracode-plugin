@@ -1,5 +1,7 @@
 ---
 name: Zero-Trust Orchestration (Cross-Agent Trust Boundaries)
+version: "1.0.0"
+depends_on: []
 description: Mandates that the main agent validates and tests the output of any sub-agent before incorporating it into the project.
 ---
 

@@ -1,5 +1,7 @@
 ---
 name: Spec-Driven Development (Blueprint Mode)
+version: "1.0.0"
+depends_on: []
 description: Forces the creation of a specification (spec.md) detailing edge cases and business logic before any code is planned or written.
 ---
 
@@ -26,3 +28,12 @@ description: Forces the creation of a specification (spec.md) detailing edge cas
 
 4. **Versioning (CRITICAL):**
    - If a `spec.md` already exists, do NOT silently overwrite it. Version it (e.g. `spec_v2.md`) to maintain a clean history.
+
+5. **Spec Template (MANDATORY sections):**
+   - Every `spec.md` MUST contain these sections in order:
+     - `## Goal` — One sentence: what we are building and why.
+     - `## Business Logic / Intent` — Detailed user stories or functional requirements.
+     - `## API Surface / Data Contracts` — Input/output schemas, endpoints, or data structures affected.
+     - `## Edge Cases & Error Handling` — Null inputs, network failures, invalid states, race conditions.
+     - `## Out of Scope` — Explicitly what this feature will NOT do or touch.
+   - Missing any section makes the spec incomplete — return it for revision, do not proceed to planning.

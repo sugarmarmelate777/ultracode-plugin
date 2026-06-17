@@ -1,5 +1,7 @@
 ---
 name: Deep Planning & Analysis (Architect Mode)
+version: "1.0.0"
+depends_on: []
 description: Enforces a rigid pre-computation and planning phase for complex tasks to ensure architectural soundness before execution.
 ---
 

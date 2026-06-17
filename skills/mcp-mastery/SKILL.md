@@ -1,5 +1,7 @@
 ---
 name: MCP Mastery (Protocol Utilization)
+version: "1.0.0"
+depends_on: []
 description: Mandates prioritizing built-in Model Context Protocol (MCP) servers and native IDE tools over custom scripts.
 ---
 
@@ -8,7 +10,7 @@ description: Mandates prioritizing built-in Model Context Protocol (MCP) servers
 ## Directives
 
 1. **Protocol First:**
-   - If no `<mcp_servers>` block is present in your system prompt AND your tool list does not contain tools with `mcp__` or `mcp_` prefix, skip this skill entirely.
+   - Check your tool list for any tools with MCP-related prefixes or descriptions indicating they are MCP-provided. If no MCP tools are detected, skip this skill entirely.
    - Before attempting to use terminal commands for complex data retrieval, web searching, or external API interaction, you MUST check the available `<mcp_servers>` block in your system prompt.
 
 2. **Tool Selection Priority:**

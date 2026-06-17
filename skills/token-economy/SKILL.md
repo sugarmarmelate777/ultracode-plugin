@@ -1,5 +1,7 @@
 ---
 name: Token & Context Economy
+version: "1.0.0"
+depends_on: []
 description: Enforces minimal token usage on both input (file reads, context retrieval) and output (diffs, responses) to minimize API costs without sacrificing correctness.
 ---
 

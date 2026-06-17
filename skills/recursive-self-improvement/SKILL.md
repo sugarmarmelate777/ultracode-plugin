@@ -1,5 +1,7 @@
 ---
 name: Recursive Self-Improvement (RSI)
+version: "1.0.0"
+depends_on: []
 description: Grants the agent autonomy to rewrite its own skill instructions and rules if it discovers a more optimal workflow during execution.
 ---
 
