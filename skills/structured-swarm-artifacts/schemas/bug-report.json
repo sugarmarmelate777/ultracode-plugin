@@ -7,6 +7,11 @@
       "type": "string",
       "description": "The specific error code or exception name."
     },
+    "severity": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low"],
+      "description": "Severity of the bug."
+    },
     "file_path": {
       "type": "string",
       "description": "Absolute path to the file containing the bug."
@@ -15,10 +20,19 @@
       "type": "integer",
       "description": "The exact line number where the bug occurs."
     },
+    "reproduction_steps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Steps to reproduce the bug."
+    },
+    "environment": {
+      "type": "string",
+      "description": "Environment where the bug was observed."
+    },
     "suggested_fix": {
       "type": "string",
       "description": "The proposed code replacement or action."
     }
   },
-  "required": ["error_code", "file_path", "line_number", "suggested_fix"]
+  "required": ["error_code", "severity", "file_path", "line_number", "reproduction_steps", "environment", "suggested_fix"]
 }

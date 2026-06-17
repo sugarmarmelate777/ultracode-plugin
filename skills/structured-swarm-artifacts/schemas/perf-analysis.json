@@ -5,10 +5,12 @@
   "properties": {
     "time_complexity": {
       "type": "string",
+      "pattern": "^O\\(\\w+(\\(\\w+\\))?\\)$",
       "description": "Big O notation."
     },
     "space_complexity": {
       "type": "string",
+      "pattern": "^O\\(\\w+(\\(\\w+\\))?\\)$",
       "description": "Big O notation."
     },
     "file_path": {

@@ -1,5 +1,7 @@
 ---
 name: Background Daemon (Proactive Polling)
+version: "1.0.0"
+depends_on: []
 description: Authorizes the agent to use the schedule tool to run as a background daemon, monitoring logs and CI pipelines autonomously.
 ---
 
@@ -8,7 +10,7 @@ description: Authorizes the agent to use the schedule tool to run as a backgroun
 ## Directives
 
 1. **Safety Checks (MANDATORY):**
-   - BEFORE proposing to run in the background, you MUST verify that a background scheduling tool (like `schedule` in Antigravity, `CronCreate` in Claude Code) exists in your environment. If not, silently skip daemon activation.
+   - BEFORE proposing to run in the background, you MUST verify that a background scheduling tool (e.g., task scheduler, cron facility, recurring prompt system) exists in your environment. Check for the presence of scheduling capabilities by inspecting available tools rather than assuming specific tool names. If no scheduling tool is detected, inform the user: 'Background daemon not available — no scheduling tool detected in this environment.'
    - [CI/CD Override]: NEVER activate the daemon in non-interactive CI/CD mode. CI runs are ephemeral.
 
 2. **Asynchronous Monitoring:**

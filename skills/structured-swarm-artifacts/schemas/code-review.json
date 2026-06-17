@@ -5,12 +5,32 @@
   "properties": {
     "security_issues": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "object",
+        "properties": {
+          "file_path": { "type": "string" },
+          "line_number": { "type": "integer" },
+          "severity": { "type": "string" },
+          "description": { "type": "string" },
+          "suggestion": { "type": "string" }
+        },
+        "required": ["file_path", "line_number", "severity", "description", "suggestion"]
+      },
       "description": "List of potential security vulnerabilities."
     },
     "performance_bottlenecks": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "object",
+        "properties": {
+          "file_path": { "type": "string" },
+          "line_number": { "type": "integer" },
+          "severity": { "type": "string" },
+          "description": { "type": "string" },
+          "suggestion": { "type": "string" }
+        },
+        "required": ["file_path", "line_number", "severity", "description", "suggestion"]
+      },
       "description": "List of O(n) inefficiencies or unoptimized queries."
     },
     "approved": {

@@ -2,12 +2,40 @@
 
 Все изменения в проекте Ultracode задокументированы ниже.
 
+## [11.8.0] — 2026-06-17 (Security Hardening & Audit Remediation) — UPDATED
+### Исправлено (Round 1 — Cross-Audit Synthesis)
+- **CRITICAL — Security Guard:** Полностью переработана система запрета команд. Добавлены: семантическое правило (запрет по цели, а не по синтаксису), regex-паттерны для обнаружения обхода через алиасы/флаги (`rm -r -f`, `ri`, `del /f`), недостающие деструктивные команды (`DROP SCHEMA/USER`, pipe-to-shell, `iptables -F`, `vagrant destroy`, `nft flush ruleset`). Закрыт вектор обхода через перестановку флагов и shell-алиасы.
+- **CRITICAL — Prompt Injection Guard:** Закрыт вектор RCE через статические файлы — запрещено сохранять внешний код в исполняемые файлы (`.sh`, `.ps1`, `.py`, `.js` и т.д.) с последующим запуском. Внешний код можно только анализировать или сохранять в `.txt`/`.md` для ручного ревью.
+- **Security — Agentic Checkpointing:** Post-task commit теперь подчиняется Global CI Gate (строка 20) — предотвращает зависание CI-пайплайна на ожидании подтверждения коммита.
+- **Security — .gitignore:** Добавлены паттерны секретных файлов (`.npmrc`, `.git-credentials`, `*.tfstate*`, `kubeconfig*`, `.aws/credentials`, `*.ppk`, `*.pem`, `*.key`, `*.crt`, `*.pfx`, `*.jks`, `*.keystore`, `*.token`, `*.secret`, `credentials*`, `secrets*`, SSH-ключи, `service-account*.json`, `.env` и вариации).
+- **Security — Session State Management:** Расширена Secret Protection на `.ultracode/telemetry.jsonl` — телеметрия не должна содержать переменные окружения или содержимое `.env` файлов.
+- **Security — Auto-Rollback Healing:** Добавлена обязательная редкация секретов перед сохранением в Dead-Letter Queue (`.ultracode/failed_attempts/`). Секреты заменяются на `[REDACTED]`.
+- **Security — Structured Swarm Artifacts:** Добавлен Content Injection Guard для Blackboard (проверка JSON на prompt injection payloads) и Slot Exclusivity (уникальные имена файлов с agent ID, защита от перезаписи между подагентами).
+- **Stability — CI/CD Mode:** Телеметрия переведена на JSONL формат (`.ultracode/telemetry.jsonl` вместо `.json`) для предотвращения повреждения JSON при конкурентной записи из параллельных swarm-агентов.
+- **Stability — Environment Doctor:** Введён лимит в 1 попытку auto-heal за сессию для предотвращения бесконечного цикла восстановления при сломанной конфигурации Docker/сервисов.
+- **Stability — Anti-Loop Protocol:** Закрыт обход через "research delegation" — нельзя обойти 2-attempt limit, делегировав подагенту "исследование" ошибки и применив его готовый фикс.
+- **Architecture — Immutable Core SSOT:** Создан `skills/immutable-core.json` как единый источник правды для списка защищённых навыков. `immutable-core-directives`, `environment-doctor`, и `run_tests.ps1` теперь ссылаются на него (с fallback-списками).
+- **Documentation — LLMS.md:** Token & Context Economy объявлена преамбулой (активна с шага 0, а не с шага 7). Добавлено CI-исключение для human-readable телеметрии (badge не выводится при `CI=true`).
+- **Documentation — CONTRIBUTING.md:** Документированы два формата CI/CD-гейтов: `(Subject to Global CI Gate)` и `[CI/CD Override]:` с правилами использования.
+- **IDE-Agnosticism — Background Daemon:** Удалены последние привязки к конкретным IDE-инструментам (schedule/CronCreate), заменены на универсальную проверку наличия scheduling tools.
+### Исправлено (Round 2 — Full Re-Audit Remediation)
+- **CRITICAL — Security Guard:** Закрыт обход `rm -r -f` (split flags) — regex теперь ловит пробельные разделители. Добавлены: `sudo`/`su -c`/`runas` escalation, `DELETE FROM x WHERE 1=1` (tautology bypass), GCP/Azure cloud destruction (`gcloud compute instances delete`, `az group delete`), AWS EC2/RDS/DynamoDB/CloudFormation/IAM, `docker kill/stop/container rm`, `ufw`/`firewall-cmd`, `VBoxManage`, `eval`/`iex`/`Invoke-Expression`, `cmd /c`/`bash -c`/`pwsh -Command` wrappers, `chown root`/`setfacl`/`chattr`, `systemctl stop` critical services, alias detection directives.
+- **CRITICAL — immutable-core.json:** Добавлен в собственный список `immutable_skills` (self-protection) — guard's guard больше нельзя удалить. `immutable-core-directives` обновлён для защиты `immutable-core.json`.
+- **CRITICAL — README.md:** Заголовок обновлён с v11.7.1 на v11.8.0.
+- **CRITICAL — LLMS.md:** Таблица State Files дополнена `.ultracode/telemetry.jsonl`. Critical Rule 2 (Security Guard) расширен до полного списка категорий. Spec-Driven Dev trigger расширен до 3 условий (>=4 files, new component, user request).
+- **CRITICAL — Agentic Checkpointing:** `git add` exclusion patterns синхронизированы с `.gitignore` — добавлены `.npmrc`, `.git-credentials`, `.netrc`, `*.tfstate*`, `*.tfvars`, `kubeconfig*`, `.aws/credentials`, `*.ppk`, `*.pkcs12`, `.pgpass`, `*.keytab`, `.pypirc`, `.dockercfg`, `.docker/config.json`, `.ultracode/`.
+- **CRITICAL — Prompt Injection Guard:** Добавлена защита от base64/hex/Unicode/URL-encoded инъекций, leetspeak, homograph attacks, null-byte splitting. Добавлен Re-ingestion Guard для markdown code blocks из внешних источников.
+- **HIGH — Structured Swarm Artifacts:** Blackboard injection detection расширен до полного паритета с Prompt Injection Guard (все языки, все obfuscation-векторы, base64/Unicode).
+- **HIGH — .gitignore:** Добавлены `.netrc`, `.dockercfg`, `.docker/config.json`, `.pgpass`, `*.keytab`, `.pypirc`, `.htpasswd`, `*.der`, `*.cert`, `*.ca-bundle`, `*.ovpn`, `*.csr`.
+- **HIGH — tests/run_tests.ps1:** YAML frontmatter test расширен до валидации `version:` и `depends_on:` полей. Добавлена обработка `immutable-core.json` как self-reference entry в Immutable Core списке.
+- **HIGH — Parallel TDD Swarm:** Добавлена Staging Isolation (`.ultracode/staging/<agent-id>/`) — подагенты больше не пишут напрямую в `src/`. Оркестратор валидирует staging-артефакты через Zero-Trust и только потом сливает в проект. Устранена гонка записи между параллельными агентами.
+
 ## [11.7.1] — 2026-06-17 (IDE-Agnostic Polish & Meta-RSI)
 ### Исправлено
 - **Architecture**: Добавлен `tests/run_tests.ps1` для обеспечения Meta-RSI Regression Suite (проверка YAML frontmatter и целостности Immutable Core).
 - **Consistency**: Унифицированы стили проверок CI (`[CI/CD Override]`), `CONTRIBUTING.md` обновлен с правилами использования Global CI Gate.
 - **Documentation**: Таблица приоритетов навыков (Skill Priority) в `LLMS.md` расширена с 17 до 23 навыков для устранения слепых зон при конфликтах.
-- **IDE-Agnosticism**: Удалены последние литералы-специфики (`/grill-me`, `schedule`, `browser automation`) из `cicd-mode`, `background-daemon` и `structured-swarm-artifacts`.
+- **IDE-Agnosticism**: Удалены последние IDE-специфики (`/grill-me`, `browser automation`) из `cicd-mode` и `structured-swarm-artifacts`. `background-daemon` использует обобщённые ссылки на инструменты планирования.
 - **Typo**: Исправлено повторяющееся слово "Adhere" в `LLMS.md`.
 
 ## [11.7.0] — 2026-06-17 (Enterprise Refactoring)

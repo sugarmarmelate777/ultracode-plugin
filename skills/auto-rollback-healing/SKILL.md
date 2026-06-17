@@ -1,5 +1,7 @@
 ---
 name: Auto-Rollback (Self-Healing)
+version: "1.0.0"
+depends_on: []
 description: Mandates that the agent automatically reverts its own failed code modifications using Git rather than leaving broken state for the user.
 ---
 
@@ -16,9 +18,10 @@ description: Mandates that the agent automatically reverts its own failed code m
 
 3. **The Safe Rollback Sequence:**
    - FIRST: Create a `.ultracode/failed_attempts/` directory if it doesn't exist, and write the currently broken files or diffs there as a "Dead-Letter Queue" for the human developer to inspect later.
-   - SECOND: Execute `git stash push --include-untracked -m "AI: pre-rollback safety stash"` to preserve ALL uncommitted work (including anything the user added since the checkpoint).
-   - THIRD: Execute `git log --grep="AI Checkpoint: pre-" --oneline -1` to find the most recent AI Checkpoint commit.
-   - FOURTH: Verify the commit hash is not empty using a shell-appropriate null check before proceeding. If no checkpoint commit is found, abort the rollback and report to the user.
+   - **Secret Redaction (MANDATORY):** Before writing to `.ultracode/failed_attempts/`, scan the content for API keys, passwords, tokens, connection strings, private keys (PEM/PFX/P12/PPK), and `.env` file contents. Replace any detected secret with `[REDACTED]`. Never persist raw credentials to the Dead-Letter Queue — the failed attempt artifacts are for logical debugging, not credential recovery.
+   - SECOND: Execute `git log --grep="AI Checkpoint: pre-" --oneline -1` to find the most recent AI Checkpoint commit.
+   - THIRD: Verify the commit hash is not empty using a shell-appropriate null check before proceeding. If no checkpoint commit is found, abort the rollback and report to the user.
+   - FOURTH: Execute `git stash push --include-untracked -m "AI: pre-rollback safety stash"` to preserve ALL uncommitted work (including anything the user added since the checkpoint).
    - FIFTH: Use `git reset --hard <checkpoint_commit_hash>` to revert ONLY to the AI Checkpoint, NOT to an arbitrary HEAD.
    - This ensures that the user's own uncommitted work (made before or after the AI started) is safely preserved in the stash and NOT destroyed.
 

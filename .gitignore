@@ -14,5 +14,47 @@ desktop.ini
 *.tmp
 *.bak
 
+# Secrets & credentials (MUST NOT be committed)
+.npmrc
+.git-credentials
+.netrc
+.dockercfg
+.docker/config.json
+.pgpass
+*.keytab
+.pypirc
+.htpasswd
+*.tfstate
+*.tfstate.*
+*.tfvars
+kubeconfig*
+.aws/credentials
+*.ppk
+*.pem
+*.key
+*.crt
+*.der
+*.cert
+*.ca-bundle
+*.pfx
+*.jks
+*.keystore
+*.cer
+*.token
+*.secret
+credentials*
+secrets*
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.p12
+*.pkcs12
+service-account*.json
+*.ovpn
+*.csr
+.env
+.env.*
+!.env.example
+
 # Ultracode Sandbox
 /.ultracode/

@@ -1,4 +1,4 @@
-# 🧠 Ultracode v11.7 — AI Agent Enhancement Plugin
+# 🧠 Ultracode v11.8.0 — AI Agent Enhancement Plugin
 
 **Ultracode** — это комплексный набор системных навыков (skills), которые превращают любую языковую модель (ChatGPT, Claude, Gemini, DeepSeek и др.) из простого чат-бота в **автономного, безопасного и экономичного ИИ-разработчика**.
 
@@ -90,7 +90,7 @@ Ultracode — это **не приложение** и **не программа*
 Пользователь: "Почини баг"
 ИИ: 
   1. [Token Economy] → Нахожу точную строку бага
-  2. [Confidence: 3/3] → Прошёл чеклист
+  2. [Confidence: 5/5] → Прошёл чеклист
   3. [Agentic Checkpoint] → Создаю git commit перед изменением
   4. [Minimal Diff] → Меняю только 2 строки
   5. [Deterministic Verification] → Запускаю тест
@@ -112,7 +112,7 @@ Ultracode — это **не приложение** и **не программа*
 |---|---|
 | **Deep Planning** | Режим Архитектора: план → утверждение → выполнение |
 | **Spec-Driven Development** | Спецификация (`spec.md`) перед сложными фичами |
-| **Confidence Scoring** | 3-point бинарный чеклист перед кодом |
+| **Confidence Scoring** | 5-point бинарный чеклист перед кодом |
 | **Deterministic Verification** | Запрет "vibe coding" — обязательные тесты |
 | **Parallel TDD Swarm** | Параллельное написание кода и тестов |
 

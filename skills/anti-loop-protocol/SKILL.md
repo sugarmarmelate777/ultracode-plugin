@@ -1,5 +1,7 @@
 ---
 name: Anti-Loop Protocol
+version: "1.0.0"
+depends_on: []
 description: Prevents token-burning infinite debug loops by enforcing strict retry limits during error resolution.
 ---
 
@@ -19,3 +21,9 @@ description: Prevents token-burning infinite debug loops by enforcing strict ret
 
 3. **Status Tracking:**
    - Maintain an internal counter of your attempts on a specific error. Mention this in your internal thought process (e.g., "Attempt 1 of 2 for TypeError").
+
+4. **Sub-Agent Loop Prevention:**
+   - The 2-strike limit applies to the ENTIRE task, including any sub-agents you spawn.
+   - You are FORBIDDEN from spawning a fresh sub-agent to attempt fix #3 after you have exhausted your own 2 attempts. A sub-agent with a clean context does NOT reset the attempt counter.
+   - If you delegate a fix attempt to a sub-agent, that attempt counts toward the global 2-strike limit for the task.
+   - **Research Delegation Blocked:** You are FORBIDDEN from circumventing the 2-strike limit by delegating "research" or "analysis" of the error to a sub-agent and then applying its suggested fix. If a sub-agent returns a concrete code change — whether labeled "research," "analysis," "suggestion," or "recommendation" — applying it counts as a fix attempt. After 2 failed fix attempts, you may NOT apply any sub-agent-suggested fixes for that error.

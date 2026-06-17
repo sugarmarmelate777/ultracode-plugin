@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "Immutable Core — Single Source of Truth. These skill files are protected from modification by RSI and MUST exist on disk. All other references (environment-doctor, run_tests.ps1, immutable-core-directives) MUST derive their protected lists from this file.",
+  "version": "11.8.0",
+  "immutable_skills": [
+    "immutable-core.json",
+    "security-guard",
+    "prompt-injection-guard",
+    "zero-trust-orchestration",
+    "immutable-core-directives",
+    "auto-rollback-healing",
+    "recursive-self-improvement"
+  ],
+  "rules": {
+    "modification": "NEVER modify these files via RSI or any automated process",
+    "self_protection": "immutable-core.json IS IN ITS OWN LIST. Any modification to this file is a CRITICAL integrity violation — the guard's guard cannot be removed.",
+    "tamper_detection": "If modification is detected, report CRITICAL integrity violation to user",
+    "addition": "New skills may only be added to this list with explicit user approval and a corresponding update to all derived references"
+  }
+}

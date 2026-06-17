@@ -41,4 +41,7 @@ description: A brief one-line description.
 - The skill must be **universal** — no hardcoded OS, IDE, or API specifics
 - Write directives as clear commands for the AI, not as recommendations
 - **DO NOT** add a `**Context:**` section — use only YAML frontmatter + `## Directives`
-- Use `if CI=true` ONLY for environment checks that skip actions unconditionally. For user-interaction gates that auto-proceed or fail, use the `(Subject to Global CI Gate)` phrase instead.
+- **CI/CD Gate Compliance:** There are exactly TWO ways to handle CI/CD mode in a skill:
+  - **`(Subject to Global CI Gate)`** — Use this phrase when a directive involves user interaction (asking permission, requesting approval, proposing an action). In CI mode, this gate auto-proceeds or fails the build.
+  - **`[CI/CD Override]:`** — Use this prefix when a directive has a different default behavior in CI vs. non-CI mode (e.g., "Infer the safest approach" vs. "Ask the user"). The override describes what happens in CI mode specifically.
+  - Do NOT write raw `if CI=true` conditionals in skill directives — the Global CI/CD Gate handles mode detection centrally. The `[CI/CD Override]` pattern is the ONLY exception, and only for behavior that must differ between modes.

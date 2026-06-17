@@ -1,7 +1,7 @@
 {
   "name": "ultracode-plugin",
-  "version": "11.7.1",
-  "description": "Ultracode v11.7 (Enterprise CI): A comprehensive set of AI agent skills -- strict Git untracked safety, zero CI pollution, exact IDE path resolution, full English rulebook for LLMs, absolute zero CI-hangs, fully IDE-agnostic.",
+  "version": "11.8.0",
+  "description": "Ultracode v11.8.0 (Security Hardened): A comprehensive set of AI agent skills -- strict Git untracked safety, zero CI pollution, exact IDE path resolution, full English rulebook for LLMs, absolute zero CI-hangs, fully IDE-agnostic.",
   "author": "Ultracode Contributors",
   "license": "MIT",
   "homepage": "https://github.com/ultracode-plugin"
