@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Audit",
+  "type": "object",
+  "properties": {
+    "accessibility_issues": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of WCAG violations."
+    },
+    "responsive_issues": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Elements breaking on mobile/tablet viewports."
+    },
+    "overall_score": {
+      "type": "integer",
+      "description": "Overall UI quality score (0 = critical failures, 100 = perfect).",
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "required": ["accessibility_issues", "responsive_issues", "overall_score"]
+}

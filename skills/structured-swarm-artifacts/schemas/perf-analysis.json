@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Performance Analysis",
+  "type": "object",
+  "properties": {
+    "time_complexity": {
+      "type": "string",
+      "description": "Big O notation."
+    },
+    "space_complexity": {
+      "type": "string",
+      "description": "Big O notation."
+    },
+    "file_path": {
+      "type": "string",
+      "description": "Absolute path to the unoptimized file."
+    },
+    "line_number": {
+      "type": "integer",
+      "description": "Line number where the bottleneck starts."
+    },
+    "optimization_suggestions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["time_complexity", "space_complexity", "file_path", "line_number", "optimization_suggestions"]
+}

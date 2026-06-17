@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Code Review",
+  "type": "object",
+  "properties": {
+    "security_issues": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of potential security vulnerabilities."
+    },
+    "performance_bottlenecks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of O(n) inefficiencies or unoptimized queries."
+    },
+    "approved": {
+      "type": "boolean",
+      "description": "Whether the code is approved for merging."
+    }
+  },
+  "required": ["security_issues", "performance_bottlenecks", "approved"]
+}
