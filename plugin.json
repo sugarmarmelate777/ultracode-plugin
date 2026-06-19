@@ -1,7 +1,9 @@
 {
   "name": "ultracode-plugin",
-  "version": "11.8.0",
-  "description": "Ultracode v11.8.0 (Security Hardened): A comprehensive set of AI agent skills -- strict Git untracked safety, zero CI pollution, exact IDE path resolution, full English rulebook for LLMs, absolute zero CI-hangs, fully IDE-agnostic.",
+  "version": "11.2.0",
+  "skills_count": 54,
+  "codename": "ELDER OF EARTH — CRYSTAL & STRUCTURE ASCENDANT",
+  "description": "Ultracode v11.2.0 (Elder of Earth): 54 living instruments across 4 councils. Earth council strengthened with 4 new skills — omni-profiler-swarm (multi-agent behavioral profiling), forensic-audio-transcriber (multi-engine audio forensics), clinical-diagnostician (differential diagnosis swarm), and financial-forensics-agent with Tax Sovereign Boost (tax evasion & sovereign citizen scheme detection). Strict Git untracked safety, zero CI pollution, exact IDE path resolution, full English rulebook for LLMs, absolute zero CI-hangs, fully IDE-agnostic. MCP Mastery: business MCP integrations (CRM/ERP/Finance/HR/Supply Chain) with ponytail-yagni and skill-hunter.",
   "author": "Ultracode Contributors",
   "license": "MIT",
   "homepage": "https://github.com/ultracode-plugin"
