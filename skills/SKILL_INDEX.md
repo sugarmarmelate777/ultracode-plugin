@@ -55,7 +55,7 @@
 | 51 | forensic-audio-transcriber | 1.0.0 | EARTH | Forensics | [mcp-mastery, cryptographic-integrity-monitor, token-economy] | **NEW v11.2.0** -- Multi-engine audio forensic analysis with speaker diarization, tampering detection, voice biometrics, and chain-of-custody transcripts. |
 | 52 | clinical-diagnostician | 1.0.0 | EARTH | Healthcare | [magic-deduction-swarm, confidence-scoring, knowledge-persistence] | **NEW v11.2.0** -- Multi-specialist differential diagnosis swarm with evidence-based reasoning, Bayesian updating, and ranked diagnostic hypotheses. |
 | 53 | financial-forensics-agent | 2.0.0 | EARTH | Forensics | [finance-accounting-agent, magic-deduction-swarm, cryptographic-integrity-monitor, deterministic-verification] | **ENHANCED v11.2.0** -- Tax Sovereign Boost: detects tax evasion patterns, sovereign citizen schemes, offshore concealment structures, and money-trail reconstruction with adversarial forensic review. |
-| 54 | session-state-management | 1.0.0 | EARTH | State | [] | Working memory across sessions: read, rehydrate, rotate. |
+| 54 | session-state-management | 1.0.0 | EARTH | State | [] | Working memory across sessions: read, rehydrate, rotate. || 55 | syndicate-router | 1.0.0 | EARTH | Swarm | [agent-orchestration, swarm-context-isolation] | **NEW v11.3.0** -- Advanced routing protocol for O(log N) navigation through the Syndicate-30000 hierarchy (75 Macro-Sectors). |
 
 ## Category Summary
 
@@ -66,7 +66,7 @@
 | Planning | 4 | deep-planning, spec-driven-development, confidence-scoring, interactive-interview-mode |
 | Quality | 1 | deterministic-verification |
 | Efficiency | 8 | token-economy, mcp-mastery, skill-hunter, native-tools-mapping, tool-translation-layer, ponytail-yagni, context-engineering, context-rotation, context-budget-manager |
-| Swarm | 5 | agent-orchestration, swarm-context-isolation, structured-swarm-artifacts, parallel-tdd-swarm, agent-pool-manager |
+| Swarm | 6 | agent-orchestration, swarm-context-isolation, structured-swarm-artifacts, parallel-tdd-swarm, agent-pool-manager, syndicate-router |
 | State | 6 | session-lifecycle-manager, knowledge-persistence, stateful-rehydration, unified-state-persistence, working-memory-state, workspace-auto-config, session-state-management |
 | Self-Evolution | 1 | recursive-self-improvement |
 | Infrastructure | 2 | background-daemon, cloud-deployment |
@@ -85,9 +85,15 @@
 | FIRE | Elder of Fire | Will & Execution | 5 | deep-planning, spec-driven-development, agent-orchestration, parallel-tdd-swarm, background-daemon |
 | WATER | Elder of Water | Wisdom & Caution | 14 | cicd-mode, anti-loop-protocol, auto-rollback-healing, security-guard, prompt-injection-guard, immutable-core-directives, confidence-scoring, cryptographic-integrity-monitor, injection-sanitizer, supply-chain-verifier, osint-detectives, magic-deduction-swarm, anomaly-lens, seek-and-destroy |
 | WIND | Elder of Wind | Harmony & Connection | 9 | mcp-mastery, session-lifecycle-manager, cloud-deployment, interactive-interview-mode, skill-hunter, native-tools-mapping, tool-translation-layer, browser-use-agent, web-devourer |
-| EARTH | Elder of Earth | Crystal & Structure | 26 | token-economy, deterministic-verification, agentic-checkpointing, zero-trust-orchestration, swarm-context-isolation, structured-swarm-artifacts, agent-pool-manager, knowledge-persistence, stateful-rehydration, unified-state-persistence, working-memory-state, workspace-auto-config, environment-doctor, recursive-self-improvement, ponytail-yagni, context-engineering, context-rotation, context-budget-manager, legal-expert-swarm, real-estate-agent, finance-accounting-agent, session-state-management, omni-profiler-swarm, forensic-audio-transcriber, clinical-diagnostician, financial-forensics-agent |
+| EARTH | Elder of Earth | Crystal & Structure | 27 | token-economy, deterministic-verification, agentic-checkpointing, zero-trust-orchestration, swarm-context-isolation, structured-swarm-artifacts, agent-pool-manager, knowledge-persistence, stateful-rehydration, unified-state-persistence, working-memory-state, workspace-auto-config, environment-doctor, recursive-self-improvement, ponytail-yagni, context-engineering, context-rotation, context-budget-manager, legal-expert-swarm, real-estate-agent, finance-accounting-agent, session-state-management, omni-profiler-swarm, forensic-audio-transcriber, clinical-diagnostician, financial-forensics-agent, syndicate-router |
 
-Total: 54 skills across 4 councils (FIRE: 5, WATER: 14, WIND: 9, EARTH: 26)
+Total: 55 skills across 4 councils (FIRE: 5, WATER: 14, WIND: 9, EARTH: 27)
+
+## v11.3.0 Changelog -- THE SYNDICATE EXPANSION
+
+### New Skills (1)
+
+- **syndicate-router** (v1.0.0): Advanced routing protocol for navigating the Syndicate-30000 hierarchy. Prevents context window collapse by enforcing O(log N) tree traversal (Macro-Sector -> Micro-Domain -> Skill). Council: EARTH.
 
 ## v11.2.0 Changelog -- ELDER OF EARTH
 
