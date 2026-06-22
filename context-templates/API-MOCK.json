@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Тестовый Пользователь",
+      "email": "test@example.com",
+      "role": "admin"
+    }
+  ],
+  "items": [
+    {
+      "id": "101",
+      "title": "Пример элемента 1",
+      "status": "active"
+    },
+    {
+      "id": "102",
+      "title": "Пример элемента 2",
+      "status": "pending"
+    }
+  ],
+  "meta": {
+    "version": "1.0.0",
+    "description": "Mock данные для Contract-Driven Development"
+  }
+}
