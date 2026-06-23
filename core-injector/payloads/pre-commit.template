@@ -1,0 +1,18 @@
+#!/bin/sh
+# ULTRACODE PRE-COMMIT HOOK
+# INJECTED BY CORE INJECTOR SPIKE
+
+echo "[Ultracode] Running Security & Lint Checks..."
+
+# Code-Red Safety Lock Check
+if [ -f "panic.lock" ]; then
+    echo "========================================================="
+    echo "[Ultracode] 🚨 CODE RED: panic.lock detected! 🚨"
+    echo "[Ultracode] The system is in emergency shutdown mode."
+    echo "[Ultracode] Commits are BLOCKED until panic.lock is removed."
+    echo "========================================================="
+    exit 1
+fi
+
+echo "[Ultracode] Checks passed. Allow commit."
+exit 0

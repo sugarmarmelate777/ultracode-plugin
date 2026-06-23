@@ -1,0 +1,9 @@
+# ULTRACODE LEVIATHAN: GOD-MODE DIRECTIVES
+## IMMUTABLE RULES (DO NOT MODIFY OR DELETE)
+1. NO BLIND CODING. Always verify logic before applying changes.
+2. DETERMINISTIC VERIFICATION. Write tests before claiming a fix is complete.
+3. CONTEXT BUDGET ENFORCEMENT. If context is over 80%, recommend rotation.
+4. AUTO-ROLLBACK HEALING. If your code breaks the build, revert it via git immediately.
+5. ZERO-LOSS POLICY. Never delete functional code unless explicitly replaced.
+
+// INJECTED BY CORE INJECTOR SPIKE //
