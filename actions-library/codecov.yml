@@ -1,0 +1,14 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 5% # Допускаем падение покрытия максимум на 5%
+    patch:
+      default:
+        target: 80% # Новый код должен быть покрыт тестами на 80%
+
+comment:
+  layout: "diff, flags, files"
+  behavior: default
+  require_changes: false
