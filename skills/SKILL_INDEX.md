@@ -56,6 +56,9 @@
 | 52 | clinical-diagnostician | 1.0.0 | EARTH | Healthcare | [magic-deduction-swarm, confidence-scoring, knowledge-persistence] | **NEW v11.2.0** -- Multi-specialist differential diagnosis swarm with evidence-based reasoning, Bayesian updating, and ranked diagnostic hypotheses. |
 | 53 | financial-forensics-agent | 2.0.0 | EARTH | Forensics | [finance-accounting-agent, magic-deduction-swarm, cryptographic-integrity-monitor, deterministic-verification] | **ENHANCED v11.2.0** -- Tax Sovereign Boost: detects tax evasion patterns, sovereign citizen schemes, offshore concealment structures, and money-trail reconstruction with adversarial forensic review. |
 | 54 | session-state-management | 1.0.0 | EARTH | State | [] | Working memory across sessions: read, rehydrate, rotate. || 55 | syndicate-router | 1.0.0 | EARTH | Swarm | [agent-orchestration, swarm-context-isolation] | **NEW v11.3.0** -- Advanced routing protocol for O(log N) navigation through the Syndicate-30000 hierarchy (75 Macro-Sectors). |
+| 56 | preflight-solution-hunter | 1.0.0 | WIND | Efficiency | [skill-hunter] | **NEW v11.3.0** -- Mandates pre-flight internet search for ready-made MCP servers and open-source packages before writing code from scratch. |
+| 57 | trading-terminal-blueprint | 1.0.0 | EARTH | Industry Expertise | [] | **NEW v11.3.0** -- Architectural blueprint for building advanced trading terminals without paid subscriptions (TradingView alternative). |
+| 58 | omni-parser-extractor | 1.0.0 | WIND | Reconnaissance | [preflight-solution-hunter] | **NEW v11.3.0** -- Advanced data extraction tools for websites, social media, and audio/video files. |
 
 ## Category Summary
 
@@ -65,15 +68,15 @@
 | Resilience | 5 | cicd-mode, anti-loop-protocol, auto-rollback-healing, agentic-checkpointing, environment-doctor |
 | Planning | 4 | deep-planning, spec-driven-development, confidence-scoring, interactive-interview-mode |
 | Quality | 1 | deterministic-verification |
-| Efficiency | 8 | token-economy, mcp-mastery, skill-hunter, native-tools-mapping, tool-translation-layer, ponytail-yagni, context-engineering, context-rotation, context-budget-manager |
+| Efficiency | 9 | token-economy, mcp-mastery, skill-hunter, native-tools-mapping, tool-translation-layer, ponytail-yagni, context-engineering, context-rotation, context-budget-manager, preflight-solution-hunter |
 | Swarm | 6 | agent-orchestration, swarm-context-isolation, structured-swarm-artifacts, parallel-tdd-swarm, agent-pool-manager, syndicate-router |
 | State | 6 | session-lifecycle-manager, knowledge-persistence, stateful-rehydration, unified-state-persistence, working-memory-state, workspace-auto-config, session-state-management |
 | Self-Evolution | 1 | recursive-self-improvement |
 | Infrastructure | 2 | background-daemon, cloud-deployment |
-| Reconnaissance | 2 | browser-use-agent, web-devourer |
+| Reconnaissance | 3 | browser-use-agent, web-devourer, omni-parser-extractor |
 | Intelligence | 2 | osint-detectives, magic-deduction-swarm |
 | Security Operations | 2 | anomaly-lens, seek-and-destroy |
-| Industry Expertise | 3 | legal-expert-swarm, real-estate-agent, finance-accounting-agent |
+| Industry Expertise | 4 | legal-expert-swarm, real-estate-agent, finance-accounting-agent, trading-terminal-blueprint |
 | Profiling | 1 | omni-profiler-swarm |
 | Forensics | 2 | forensic-audio-transcriber, financial-forensics-agent |
 | Healthcare | 1 | clinical-diagnostician |
@@ -84,16 +87,19 @@
 | --- | --- | --- | --- | --- |
 | FIRE | Elder of Fire | Will & Execution | 5 | deep-planning, spec-driven-development, agent-orchestration, parallel-tdd-swarm, background-daemon |
 | WATER | Elder of Water | Wisdom & Caution | 14 | cicd-mode, anti-loop-protocol, auto-rollback-healing, security-guard, prompt-injection-guard, immutable-core-directives, confidence-scoring, cryptographic-integrity-monitor, injection-sanitizer, supply-chain-verifier, osint-detectives, magic-deduction-swarm, anomaly-lens, seek-and-destroy |
-| WIND | Elder of Wind | Harmony & Connection | 9 | mcp-mastery, session-lifecycle-manager, cloud-deployment, interactive-interview-mode, skill-hunter, native-tools-mapping, tool-translation-layer, browser-use-agent, web-devourer |
-| EARTH | Elder of Earth | Crystal & Structure | 27 | token-economy, deterministic-verification, agentic-checkpointing, zero-trust-orchestration, swarm-context-isolation, structured-swarm-artifacts, agent-pool-manager, knowledge-persistence, stateful-rehydration, unified-state-persistence, working-memory-state, workspace-auto-config, environment-doctor, recursive-self-improvement, ponytail-yagni, context-engineering, context-rotation, context-budget-manager, legal-expert-swarm, real-estate-agent, finance-accounting-agent, session-state-management, omni-profiler-swarm, forensic-audio-transcriber, clinical-diagnostician, financial-forensics-agent, syndicate-router |
+| WIND | Elder of Wind | Harmony & Connection | 11 | mcp-mastery, session-lifecycle-manager, cloud-deployment, interactive-interview-mode, skill-hunter, native-tools-mapping, tool-translation-layer, browser-use-agent, web-devourer, preflight-solution-hunter, omni-parser-extractor |
+| EARTH | Elder of Earth | Crystal & Structure | 28 | token-economy, deterministic-verification, agentic-checkpointing, zero-trust-orchestration, swarm-context-isolation, structured-swarm-artifacts, agent-pool-manager, knowledge-persistence, stateful-rehydration, unified-state-persistence, working-memory-state, workspace-auto-config, environment-doctor, recursive-self-improvement, ponytail-yagni, context-engineering, context-rotation, context-budget-manager, legal-expert-swarm, real-estate-agent, finance-accounting-agent, session-state-management, omni-profiler-swarm, forensic-audio-transcriber, clinical-diagnostician, financial-forensics-agent, syndicate-router, trading-terminal-blueprint |
 
-Total: 55 skills across 4 councils (FIRE: 5, WATER: 14, WIND: 9, EARTH: 27)
+Total: 58 skills across 4 councils (FIRE: 5, WATER: 14, WIND: 11, EARTH: 28)
 
 ## v11.3.0 Changelog -- THE SYNDICATE EXPANSION
 
 ### New Skills (1)
 
 - **syndicate-router** (v1.0.0): Advanced routing protocol for navigating the Syndicate-30000 hierarchy. Prevents context window collapse by enforcing O(log N) tree traversal (Macro-Sector -> Micro-Domain -> Skill). Council: EARTH.
+- **preflight-solution-hunter** (v1.0.0): Pre-flight mandatory search protocol. Searches Top-100 IT and AI platforms for existing MCP servers and ready code before starting implementation from scratch. Council: WIND.
+- **trading-terminal-blueprint** (v1.0.0): Architectural blueprint for building advanced trading terminals with free premium indicators (FVG, Volume Profile, unlimited layouts) and zero-cost data feeds. Council: EARTH.
+- **omni-parser-extractor** (v1.0.0): Advanced tools integration (Crawl4AI, Apify, yt-dlp, Whisper) for parsing JS websites, closed social media platforms, and transcribing media. Council: WIND.
 
 ## v11.2.0 Changelog -- ELDER OF EARTH
 
