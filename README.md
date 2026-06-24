@@ -142,6 +142,14 @@ Ultracode — это **не приложение** и **не программа*
 | **Agent Orchestration** | Делегирование задач подагентам |
 | **Swarm Context Isolation** | Минимальный контекст для каждого подагента |
 | **Structured Swarm Artifacts** | Общение агентов строго через JSON |
+| **Omni-Parser Extractor** | Парсинг веб-сайтов (JS) и видео (YouTube) с LLM-суммаризацией |
+
+### 🧠 Векторная Память и Контекст
+| Навык | Что делает |
+|---|---|
+| **Cline Memory Bank Sync** | Внедрение архитектуры Memory Bank (projectbrief, progress, и т.д.) |
+| **Vector Memory (RAG)** | Индексация истории в ChromaDB для семантического поиска |
+| **AI Auto-Fill Memory** | Автоматическая генерация контекста проекта через локальные LLM |
 
 ### 🧬 Само-Эволюция
 | Навык | Что делает |
