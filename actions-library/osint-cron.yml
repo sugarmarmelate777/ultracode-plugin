@@ -1,0 +1,39 @@
+name: "OSINT Daily Crawler"
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Каждый день в 02:00 UTC
+  workflow_dispatch: # Позволяет запускать вручную
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Нужно для коммита результатов обратно в репо
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements-osint.txt ]; then pip install -r requirements-osint.txt; fi
+
+    - name: Run OSINT Script
+      env:
+        API_KEYS: ${{ secrets.OSINT_API_KEYS }} # Секреты нужно добавить в настройки репо
+      run: python scripts/osint_crawler.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'OSINT-Bot'
+        git config --global user.email 'osint@bot.local'
+        git add data/
+        git commit -m "Auto-update OSINT data" || echo "No changes to commit"
+        git push

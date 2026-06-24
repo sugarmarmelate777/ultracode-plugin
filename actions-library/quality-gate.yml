@@ -1,0 +1,30 @@
+name: "Quality Gate (Super-Linter)"
+
+on:
+  push:
+    branches-ignore: [ "main" ] # Запускаем на всех ветках кроме main (на main уже должно быть все ок)
+  pull_request:
+
+jobs:
+  super-lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      statuses: write
+      
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Super-Linter
+        uses: github/super-linter@v5
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false # Проверяет только измененные файлы
+          VALIDATE_PYTHON_BLACK: true
+          VALIDATE_PYTHON_FLAKE8: true
+          VALIDATE_JAVASCRIPT_ES: true
