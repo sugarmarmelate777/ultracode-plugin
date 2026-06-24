@@ -60,6 +60,7 @@
 | 57 | trading-terminal-blueprint | 1.0.0 | EARTH | Industry Expertise | [] | **NEW v11.3.0** -- Architectural blueprint for building advanced trading terminals without paid subscriptions (TradingView alternative). |
 | 58 | omni-parser-extractor | 1.0.0 | WIND | Reconnaissance | [preflight-solution-hunter] | **NEW v11.3.0** -- Advanced data extraction tools for websites, social media, and audio/video files. |
 | 59 | cline-memory-bank-sync | 1.0.0 | EARTH | State | [session-state-management] | **NEW v11.3.0** -- Implements the Cline Memory Bank pattern for maintaining persistent cross-session context via Markdown files. |
+| 60 | github-store-integration | 1.0.0 | WIND | Security | [] | **NEW v11.3.0** -- Mandates GitHub authorization to avoid API limits and requires GitHub Store/Releases for installing external utilities, bypassing network blocks. |
 
 ## Category Summary
 
@@ -102,6 +103,7 @@ Total: 59 skills across 4 councils (FIRE: 5, WATER: 14, WIND: 11, EARTH: 29)
 - **trading-terminal-blueprint** (v1.0.0): Architectural blueprint for building advanced trading terminals with free premium indicators (FVG, Volume Profile, unlimited layouts) and zero-cost data feeds. Council: EARTH.
 - **omni-parser-extractor** (v1.0.0): Advanced tools integration (Crawl4AI, Apify, yt-dlp, Whisper) for parsing JS websites, closed social media platforms, and transcribing media. Council: WIND.
 - **cline-memory-bank-sync** (v1.0.0): Official integration of the Cline Memory Bank architecture, enforcing persistent context documentation via projectbrief, activeContext, and systemPatterns. Council: EARTH.
+- **github-store-integration** (v1.0.0): Integration with GitHub Store and strict requirement for GitHub authorization to bypass software blocks and expand API limits (60 -> 5000 requests). Council: WIND.
 
 ## v11.2.0 Changelog -- ELDER OF EARTH
 
